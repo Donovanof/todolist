@@ -8,19 +8,24 @@ class App extends Component {
     };
 
     removeTodos = (index) => {
+        if (window.confirm("etes vous sur de vous?")){
         const { todos } = this.state;
-
+            
         this.setState({
+            
             todos: todos.filter((todos, i) => {
                 return i !== index;
             })
         })
     }
+    }
 
     deleteAllTodos = () => {
-        this.setState({
-            todos: []
-        })
+        if (window.confirm("etes vous sur de vous?")) {
+            this.setState({
+                todos: []
+            })
+        }
     }
 
     handleSubmit = (todo) => {
@@ -45,7 +50,7 @@ class App extends Component {
         console.log(todos)
         return (
             <div>
-                
+
                 <Table
                     todosData={todos}
                     removeTodos={this.removeTodos}
